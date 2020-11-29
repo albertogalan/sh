@@ -46,8 +46,9 @@ read deploykey
 echo "$deploykey"   > /home/$MAINUSER/.ssh/$MAINUSER-github-key
 sudo $package_manager install -y docker.io
 sudo $package_manager install -y ansible
-sudo su agalan
+sudo su $MAINUSER 
+cd
 git clone git@github.com:albertogalan/devops-desk.git
-cd devops-desks
+cd devops-desk
 sudo service sshd restart
 
