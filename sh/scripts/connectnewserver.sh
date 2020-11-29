@@ -42,7 +42,7 @@ sudo chmod 600 /home/$MAINUSER/.ssh/authorized_keys
 sudo chown $MAINUSER:$MAINUSER -R  /home/$MAINUSER/.ssh
 sudo adduser $MAINUSER sudo
 echo introduce github deploy-key
-sudo su -c  "vim  /home/$MAINUSER/.ssh/$MAINUSER-github-key" - agalan
+sudo su -c  "ls /home/$MAINUSER/.ssh/$MAINUSER-github-key || vim /home/$MAINUSER/.ssh/$MAINUSER-github-key" - agalan
 sudo $package_manager install -y docker.io
 sudo $package_manager install -y ansible
 sudo su -c "`ssh-agent -s`" - agalan
