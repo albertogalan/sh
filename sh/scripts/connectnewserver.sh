@@ -41,6 +41,7 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDaWulObziluJLzVk7tmEDfkAKpCHEmp4AFvn
 sudo chmod 600 /home/$MAINUSER/.ssh/authorized_keys
 sudo chown $MAINUSER:$MAINUSER -R  /home/$MAINUSER/.ssh
 sudo adduser $MAINUSER sudo
-sudo $package_manager install docker.io
+sudo $package_manager install -y docker.io
+sudo $package_manager install -y ansible
 sudo service sshd restart
 
