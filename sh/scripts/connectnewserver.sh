@@ -42,15 +42,9 @@ sudo chmod 600 /home/$MAINUSER/.ssh/authorized_keys
 sudo chown $MAINUSER:$MAINUSER -R  /home/$MAINUSER/.ssh
 sudo adduser $MAINUSER sudo
 echo introduce github deploy-key
+read -d '' deploykey <<EOF 
+echo "$deploykey"   > /home/$MAINUSER/.ssh/$MAINUSER-github-key
 sudo $package_manager install -y docker.io
 sudo $package_manager install -y ansible
-sudo su $MAINUSER 
-echo introduce your github key , after push enter
-read mm
-vim /home/$MAINUSER/.ssh/$MAINUSER-github-key
-chmod 400 /home/$MAINUSER/.ssh/$MAINUSER-github-key
-cd
-git clone git@github.com:albertogalan/devops-desk.git
-cd devops-desk
-sudo service sshd restart
+sudo su -c "cd /home/agalan/;git clone git@github.com:albertogalan/devops-desk.git"
 
