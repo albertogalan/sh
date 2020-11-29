@@ -41,6 +41,9 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDaWulObziluJLzVk7tmEDfkAKpCHEmp4AFvn
 sudo chmod 600 /home/$MAINUSER/.ssh/authorized_keys
 sudo chown $MAINUSER:$MAINUSER -R  /home/$MAINUSER/.ssh
 sudo adduser $MAINUSER sudo
+echo introduce github deploy-key
+read deploykey 
+echo "$deploykey"   > /home/$MAINUSER/.ssh/$MAINUSER-github-key
 sudo $package_manager install -y docker.io
 sudo $package_manager install -y ansible
 sudo service sshd restart
