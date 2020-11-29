@@ -45,6 +45,8 @@ echo introduce github deploy-key
 sudo su -c  "vim  /home/$MAINUSER/.ssh/$MAINUSER-github-key" - agalan
 sudo $package_manager install -y docker.io
 sudo $package_manager install -y ansible
+sudo su -c "`ssh-agent -s`" - agalan
+sudo su -c "ssh-add /home/agalan/.ssh/agalan-github-key"
 sudo su -c "cd /home/agalan/;git clone git@github.com:albertogalan/devops-desk.git" - agalan
 
 
