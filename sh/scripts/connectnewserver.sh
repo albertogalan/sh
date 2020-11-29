@@ -47,3 +47,4 @@ sudo $package_manager install -y docker.io
 sudo $package_manager install -y ansible
 sudo su -c "cd /home/agalan/;git clone git@github.com:albertogalan/devops-desk.git" - agalan
 
+
