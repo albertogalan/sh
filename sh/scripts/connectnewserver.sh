@@ -67,5 +67,10 @@ sudo su -c "ssh-add /home/agalan/.ssh/agalan-github-key"
 ## Adding data folder 
 sudo mkdir -p /data/src
 sudo chown -R agalan:agalan /data
-sudo su -c "cd /home/agalan/;git clone git@github.com:albertogalan/devops-desk.git" - agalan
-sudo su -c "cd /home/agalan/;git clone git@github.com:albertogalan/desk.git" - agalan
+sudo su -c "cd /data/src/;git clone git@github.com:albertogalan/devops-desk.git" - agalan
+sudo su -c "cd /data/src/;git clone git@github.com:albertogalan/desk.git" - agalan
+sudo su -c "cd /data/src/;git clone https://github.com/albertogalan/dotconfig.git" - agalan
+
+echo "you need to sync from computer .tmux .vim .gitconfig .profile .bashrc"
+echo  "you need to sync from repo /data/src/dotconfig/kitty"
+
