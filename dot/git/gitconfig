@@ -1,0 +1,70 @@
+[user]
+	email = email@gmail.com
+	name = toconfigure
+[commit]
+	template = /home/agalan/.git-commit-template
+[core]
+	editor = /usr/bin/vim
+	excludesfile = /home/agalan/.gitignore_global
+	ignore = dirty
+
+[alias]
+    ;  need to review :  <07-05-19, agalan> ; 
+	  issue = !/home/agalan/git-issue/git-issue.sh
+    ac = "!f(){ git add -A ; git commit -m \"$1\"; }; f"
+    acp = "!f(){ git add -A ; git commit ; git push; }; f"
+    ls ="!git log --oneline --decorate --graph --all"
+    lsf ="!git log --oneline --all --full-history --name-only -- "
+    # commit and ammend to previous commit if I forget to put something else
+    caa = !git commit -a --amend -C HEAD
+    # Hide files from git git ig <file> // if not in .ignorefiles
+    ig  = !git update-index --assume-unchanged 
+    # List Unchanged files
+    lig  = !git ls-files -v | grep ^h 
+
+    #git sba <repository uri> <destination folder>
+    #git sba https://bitbucket.org/vim-plugins-mirror/vim-surround.git .vim/bundle/tpope-vim-surround
+    # the acronym stands for "subtree add"
+    sba = "!f() { git subtree add --prefix $2 $1 master --squash; }; f"
+    # the acronym stands for "subtree update"
+    sbu = "!f() { git subtree pull --prefix $2 $1 master --squash; }; f"})})
+    setlhmail="config user.email 'alberto.galanfernandez.ext@lafargeholcim.com'"
+    setmail="config user.email 'info@albertogalan.com'"
+    changeremotehost = !sh -c \"git remote -v | grep '$1.*fetch' | sed s/..fetch.// | sed s/$1/$2/ | xargs git remote set-url\"
+    golh = !sh -c \"git changeremotehost github.com github.lh && git setlhmail\"
+	pr = pull-request
+    ck = "!f() { git checkout -b $1 origin/develop; }; f"
+    cko = "!f() { git checkout -b $1 origin/dev; }; f"
+	nb = !git checkout --track $(git config branch.$(git rev-parse --abbrev-ref HEAD).remote)/$(git rev-parse --abbrev-ref HEAD) -b
+	d = difftool
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+
+[push]
+	default = matching
+  recurseSubmodules = on-demand
+# Reuse Recorded Resolutions // dealing with repetitive and similar conflict
+[rerere]
+	enabled = true
+
+# when doing rebase in master file don't disturb others
+#    git commit -m "squash! .."
+#    git commit -m "fixup! .."
+#    git commit -m "reword! .."
+[rebase]
+	autosquash = true
+[ghi]
+	token = 94c8c5db9def9715be663772f6148fbdf62df463
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[credential]
+	helper = cache
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
+[difftool]
+	prompt = false

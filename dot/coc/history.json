@@ -1,0 +1,32 @@
+{
+  "symbols": {
+    "%2Fdata%2Fsrc%2Flh%2Fsrc%2Fdevops-practices%2Fsrc%2Fnexus%2Fgithub-webhooks": [
+      ":w!"
+    ]
+  },
+  "diagnostics": {
+    "%2Fdata%2Fsrc%2Flh%2Flh%2Finfra": [
+      "s.jsoncat repos.jsoncurl -u agalanfe:$GITTOKEN https://api.github.com/orgs/eits-lafargeholcim/repos > repos.jsoncat repos.jsonqi",
+      "vim repos.jsongrep -ri commitsqq:qqqq"
+    ],
+    "%2Fdata%2Fsrc%2Flh%2Fsrc%2Fdevops-ocp4-install%2Froles%2Focp4-post-cert-manager": [
+      "t(omit) }}\""
+    ],
+    "%2Ftmp%2Ftmp%2Ftest-role": [
+      "dkd:q!"
+    ]
+  },
+  "commands": {
+    "%2Fdata%2Fsrc%2Flh%2Fsrc%2Ftmp%2Ftest_ansible%2Froles%2Focp4-role": [
+      "docu"
+    ]
+  },
+  "outline": {
+    "roles%2Ftower-hello%2F": [
+      "t"
+    ],
+    "%2Fdata%2Fsrc%2Flh%2Fsrc%2Fapp-onboarding%2Fprojects%2Fapp": [
+      "i"
+    ]
+  }
+}

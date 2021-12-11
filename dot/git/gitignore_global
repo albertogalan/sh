@@ -1,0 +1,20 @@
+# ignore all logs
+*.logs
+*.*backup
+tmp
+test*
+old*
+old/*
+*/node_modules/*
+.vim/plugged
+tmp*
+*.rdp
+
+# vim
+*.swo
+*.swp
+
+# terraform
+.terraform*
+*.tfstate
+*describe-images
