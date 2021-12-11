@@ -28,6 +28,12 @@ sudo $package_manager update
 sudo $package_manager -y install python-simplejson
 sudo $package_manager install -y openssh-server
 
+# Graphical environment
+sudo $package_manager install -y i3 xinit rdp
+
+# kitty Terminal 
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+
 LINE="%$MAINUSER ALL=(ALL:ALL) NOPASSWD:ALL" 
 FILE=/etc/sudoers
 grep -qF "$LINE" "$FILE"  || echo "$LINE" | sudo tee --append "$FILE"
