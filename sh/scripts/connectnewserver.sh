@@ -28,6 +28,11 @@ sudo $package_manager update
 sudo $package_manager -y install python-simplejson
 sudo $package_manager install -y openssh-server
 
+# Sound
+# https://itsfoss.com/fix-sound-ubuntu-1304-quick-tip/
+sudo $package_manager install alsa-base pulseaudio -y
+pulseaudio --start
+
 # Graphical environment
 sudo $package_manager install -y i3 xinit xrdp ranger autojump
 
