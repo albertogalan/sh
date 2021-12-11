@@ -29,7 +29,7 @@ sudo $package_manager -y install python-simplejson
 sudo $package_manager install -y openssh-server
 
 # Graphical environment
-sudo $package_manager install -y i3 xinit rdp
+sudo $package_manager install -y i3 xinit xrdp
 
 # kitty Terminal 
 #curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
@@ -70,7 +70,6 @@ sudo su -c "ssh-add /home/agalan/.ssh/agalan-github-key"
 sudo mkdir -p /data/src
 sudo chown -R agalan:agalan /data
 sudo su -c "cd /data/src/;git clone git@github.com:albertogalan/devops-desk.git" - agalan
-sudo su -c "cd /data/src/;git clone git@github.com:albertogalan/desk.git" - agalan
 sudo su -c "cd /data/src/;git clone https://github.com/albertogalan/dotconfig.git" - agalan
 
 echo "you need to sync from computer .tmux .vim .gitconfig .profile .bashrc"
