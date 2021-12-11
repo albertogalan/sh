@@ -60,17 +60,17 @@ LINE="%$MAINUSER ALL=(ALL:ALL) NOPASSWD:ALL"
 FILE=/etc/sudoers
 grep -qF "$LINE" "$FILE"  || echo "$LINE" | sudo tee --append "$FILE"
 
-sudo adduser $MAINUSER
-sudo adduser $MAINUSER admin sudoers
-sudo usermod -u 1004 $MAINUSER	
-sudo groupmod -g 1004 $MAINUSER
+#sudo adduser $MAINUSER
+#sudo adduser $MAINUSER admin sudoers
+#sudo usermod -u 1004 $MAINUSER	
+#sudo groupmod -g 1004 $MAINUSER
 sudo mkdir -p /home/$MAINUSER/.ssh
 echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDaWulObziluJLzVk7tmEDfkAKpCHEmp4AFvnQVhh6Yof40s2yfz1h/bMCfBstg+jLz86K99DV/tnIDtxXRx2GfGVz11l/BSuhStUDu9RKxZYN4DhMzc31/vwIWWP/P4vnJX96+JlcfF+0hbXmqfHhlcJACT7nRFuQrtVs+REAyJG/3ZuWNH1jvSKmXJYRj+CeCl0hElYtf+bF3JCEnmXl+ezUQcIXyhJ3loPhuEoGPHjHP8gZmiSjUn5SHaLkH1JPt6A/DvpxyPHdFmopL/HxFJEPxF4m5hCLleM2do3r5Owe4lmmOGgANkRLhS8b/Mmqe0mjOno9gYGYcnJ4iaPa9 $MAINUSER@neolearn" | sudo tee -a /home/$MAINUSER/.ssh/authorized_keys
 sudo chmod 600 /home/$MAINUSER/.ssh/authorized_keys
 sudo chown $MAINUSER:$MAINUSER -R  /home/$MAINUSER/.ssh
 sudo adduser $MAINUSER sudo
-echo introduce github deploy-key
-sudo su -c  "ls /home/$MAINUSER/.ssh/$MAINUSER-github-key || vim /home/$MAINUSER/.ssh/$MAINUSER-github-key" - agalan
+#echo introduce github deploy-key
+#sudo su -c  "ls /home/$MAINUSER/.ssh/$MAINUSER-github-key || vim /home/$MAINUSER/.ssh/$MAINUSER-github-key" - agalan
 
 sudo su -c "`ssh-agent -s`" - agalan
 sudo su -c "ssh-add /home/agalan/.ssh/agalan-github-key"
