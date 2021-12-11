@@ -54,7 +54,7 @@ sudo $package_manager install -y vim libgtk2.0-0 silversearcher-ag ripgrep nodej
 
 
 # Add Home Brew
-curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+#curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 
 LINE="%$MAINUSER ALL=(ALL:ALL) NOPASSWD:ALL" 
 FILE=/etc/sudoers
