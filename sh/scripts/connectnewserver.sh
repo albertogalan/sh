@@ -29,7 +29,7 @@ sudo $package_manager -y install python-simplejson
 sudo $package_manager install -y openssh-server
 
 # Graphical environment
-sudo $package_manager install -y i3 xinit xrdp ranger
+sudo $package_manager install -y i3 xinit xrdp ranger autojump
 
 # kitty Terminal 
 #curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
