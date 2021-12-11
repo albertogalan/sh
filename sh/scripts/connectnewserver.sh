@@ -36,6 +36,9 @@ pulseaudio --start
 # Graphical environment
 sudo $package_manager install -y i3 xinit xrdp ranger autojump
 
+# Browser
+sudo $package_manager install -y firefox
+
 # kitty Terminal 
 #curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 sudo $package_manager install -y kitty
