@@ -35,6 +35,19 @@ sudo $package_manager install -y i3 xinit rdp
 #curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 sudo $package_manager install -y kitty
 
+# Tools
+sudo $package_manager install -y docker.io ansible
+
+# Add Home Brew
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.bash_profile
+echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.profile
+
+# Add Developing Tools
+brew update
+
+
 LINE="%$MAINUSER ALL=(ALL:ALL) NOPASSWD:ALL" 
 FILE=/etc/sudoers
 grep -qF "$LINE" "$FILE"  || echo "$LINE" | sudo tee --append "$FILE"
@@ -50,10 +63,14 @@ sudo chown $MAINUSER:$MAINUSER -R  /home/$MAINUSER/.ssh
 sudo adduser $MAINUSER sudo
 echo introduce github deploy-key
 sudo su -c  "ls /home/$MAINUSER/.ssh/$MAINUSER-github-key || vim /home/$MAINUSER/.ssh/$MAINUSER-github-key" - agalan
-sudo $package_manager install -y docker.io
-sudo $package_manager install -y ansible
+
 sudo su -c "`ssh-agent -s`" - agalan
 sudo su -c "ssh-add /home/agalan/.ssh/agalan-github-key"
+
+
+
+## Adding data folder 
+sudo mkdir -p /data/src
+sudo chown -R agalan:agalan /data
 sudo su -c "cd /home/agalan/;git clone git@github.com:albertogalan/devops-desk.git" - agalan
-
-
+sudo su -c "cd /home/agalan/;git clone git@github.com:albertogalan/desk.git" - agalan
