@@ -24,7 +24,7 @@ else
 fi
 
 
-sudo $package_manager update
+#sudo $package_manager update
 sudo $package_manager -y install python-simplejson
 sudo $package_manager install -y openssh-server
 
