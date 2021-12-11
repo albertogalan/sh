@@ -1,0 +1,50 @@
+tmp
+mkdir tmp
+rename tmp3
+rename tmp4
+rename src
+search opt-dso
+rename opt-bootstrap_old
+mkdir opt-bootstrap
+rename credit-bootstrap
+search credit-dso
+rename gps-bootstrap
+search mp43
+search mp4
+rename credit-qa
+rename credit-prod
+rename smallquota
+rename smalllimit
+rename largelimit_
+rename largelimit
+rename largequota
+rename 1.18angular
+q
+search ang
+rename Dockerfile.test
+rename Dockerfile
+search ngin
+rename 2018-may-newcontract
+search old
+search docx
+search lepan
+search pdf
+search def
+rename etherum
+rename opt-dev
+rename opt-cicd
+rename opt-be-pyrou.env
+rename routesharding-qa.yaml
+rename routesharding-ua.yaml
+mkdir dso
+search madrid-dso
+rename 20210401-contrato_arrendamiento_vivienda-lepanto-v2_signed.pdf
+rename dev-fireq-rds-tests
+rename fireq-cicd
+rename fireq-dev
+rename fireq-mobile-webapi.env
+delete
+mkdir firacode
+rename firacode
+search 
+search Pictu

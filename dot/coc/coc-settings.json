@@ -1,0 +1,28 @@
+{
+  "languageserver": {
+      "golang": {
+        "command": "gopls",
+        "rootPatterns": ["go.mod"],
+        "filetypes": ["go"]
+      }
+,
+ 	 "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    }
+
+  },
+
+"coc.source.omni.filetypes":["/*.yaml","/*.yml"],
+
+"yaml.trace.server": "verbose",
+"yaml.format.singleQuote":true,
+"yaml.completion": true,
+
+  "yaml.schemas": {
+      "kubernetes": "/*.yaml",
+      "https://json.schemastore.org/ansible-role-2.9":"/*.yml"
+  }
+}
