@@ -29,7 +29,7 @@ sudo $package_manager -y install python-simplejson
 sudo $package_manager install -y openssh-server
 
 # Graphical environment
-sudo $package_manager install -y i3 xinit xrdp
+sudo $package_manager install -y i3 xinit xrdp ranger
 
 # kitty Terminal 
 #curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
@@ -75,7 +75,7 @@ sudo su -c "cd /data/src/;git clone https://github.com/albertogalan/dotvim.git" 
 sudo su -c "cd /data/src/;git clone https://github.com/albertogalan/docs.git" - agalan
 sudo su -c "cd /data/src/;git clone https://github.com/albertogalan/cheatsheet.git" - agalan
 
-echo "you need to sync from computer .tmux .vim .gitconfig .profile .bashrc"
+echo "you need to sync from computer .tmux .vim .gitconfig .profile .bashrc ranger"
 echo  "you need to sync from repo /data/src/dotconfig/kitty"
 echo  "you need to sync from repo /data/src/cheatsheet"
 
