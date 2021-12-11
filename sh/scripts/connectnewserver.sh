@@ -32,7 +32,8 @@ sudo $package_manager install -y openssh-server
 sudo $package_manager install -y i3 xinit rdp
 
 # kitty Terminal 
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+#curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+sudo $package_manager install -y kitty
 
 LINE="%$MAINUSER ALL=(ALL:ALL) NOPASSWD:ALL" 
 FILE=/etc/sudoers
