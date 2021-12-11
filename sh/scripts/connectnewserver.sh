@@ -37,6 +37,8 @@ sudo $package_manager install -y kitty
 
 # Tools
 sudo $package_manager install -y docker.io ansible
+sudo $package_manager install curl wget fzf python3-minimal npm --no-install-recommends -y
+git clone --branch 0.25.0 --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && echo yes | ~/.fzf/install
 
 # Add Home Brew
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
