@@ -10,7 +10,7 @@ sudo apt install -y firefox ranger kitty
 # Sound
 # https://itsfoss.com/fix-sound-ubuntu-1304-quick-tip/
 sudo apt install alsa-base pulseaudio -y
-pulseaudio --start
+#pulseaudio --start
 
 # Installing tools
 sudo apt install -y docker.io ansible
@@ -40,6 +40,8 @@ sudo chown -R agalan:agalan /data
 # adding folder for swap files for vim
 mkdir -p /home/agalan/tmp
 
+
+sudo apt install -y ruby
 # Install home brew with no prompt
 URL_BREW='https://raw.githubusercontent.com/Homebrew/install/master/install'
 echo -n '- Installing brew ... '
