@@ -21,7 +21,7 @@ curl https://raw.githubusercontent.com/albertogalan/sh/develop/sh/scripts/i3-des
 sudo cp /tmp/postinstall.sh /home/agalan/postinstall.sh
 
 sudo chmod 755 /home/agalan/postintall.sh
-sudo chown agalan:agalan /home/agalan/postintall.sh
+sudo chown agalan:agalan /home/agalan/postinstall.sh
  
 sudo chown -R agalan:agalan /home/agalan
 
