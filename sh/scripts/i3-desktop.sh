@@ -43,7 +43,9 @@ sudo chown -R vagrant:vagrant  /home/vagrant/.config
 installation_packages() {
 
 sudo apt update
+sudo apt install -y python3-pip 
 sudo apt install -y net-tools 
+sudo apt install -y golang-go
 sudo apt install -y ranger i3 xrdp 
 sudo systemctl restart xrdp.service
 #sudo apt install tightvncserver

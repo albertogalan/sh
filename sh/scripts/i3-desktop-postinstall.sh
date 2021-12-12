@@ -4,7 +4,6 @@
 repos="
 docs
 cheatsheet
-dotvim
 dot-tldr
 "
 
@@ -24,18 +23,29 @@ done
 
 sync_dot(){
 
-rsync -a /data/src/dotvim/  /home/agalan/.vim/
 
+# install vim flavour
+rm -rf /home/agalan/.vim
+git clone -b bix --single-branch git@github.com:albertogalan/$repo.git /home/agalan/.vim
 
 # install cheat
-pip install cheat
-rsync -a /data/src/cheatsheet/  /home/agalan/.cheat/
+go get -u github.com/cheat/cheat/cmd/cheat
+mkdir -p /home/agalan/.config/cheat
+rsync -a /data/src/cheatsheet/  /home/agalan/.config/cheat/
 echo 'export CHEAT_CONFIG_PATH="~/.cheat/conf.yml"' >> $HOME/.profile
 echo 'export CHEAT_CONFIG_PATH="~/.cheat/conf.yml"' >> $HOME/.bashrc
 echo 'export CHEAT_USE_FZF=true' >> $HOME/.profile
 echo 'export CHEAT_USE_FZF=true' >> $HOME/.bashrc
 }
 
+update_paths(){
+
+echo 'PATH=$PATH:/home/agalan/go/bin' >> $HOME/.bashrc
+echo 'PATH=$PATH:/home/agalan/go/bin' >> $HOME/.profile
+source $HOME/.bashrc
+
+}
 
 cloning_repos
 sync_dot
+update_paths
