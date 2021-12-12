@@ -3,7 +3,7 @@ N = 1
 
 $script = <<-SCRIPT
 
-#curl https://raw.githubusercontent.com/albertogalan/sh/develop/sh/scripts/i3-desktop.sh | bash -s debian 
+curl https://raw.githubusercontent.com/albertogalan/sh/develop/sh/scripts/i3-desktop.sh | bash -s debian 
 SCRIPT
 
 Vagrant.configure("2") do |config|
@@ -11,8 +11,8 @@ Vagrant.configure("2") do |config|
 
     config.vm.provision "shell", inline: $script
     config.ssh.username = "vagrant"
-    config.vm.provision "file", source: "~/.ssh/known_hosts", destination: "/home/agalan/.ssh/known_hosts"
-    config.vm.provision "file", source: "~/.ssh/id_rsa", destination: "/home/agalan/.ssh/agalan-github-key"
+    config.vm.provision "file", source: "~/.ssh/known_hosts", destination: ".ssh/known_hosts"
+    config.vm.provision "file", source: "~/.ssh/id_rsa", destination: ".ssh/agalan-github-key"
 
     config.vm.provider "virtualbox" do |v|
         v.memory = 4096
