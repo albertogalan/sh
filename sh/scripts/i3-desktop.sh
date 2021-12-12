@@ -17,11 +17,8 @@ mkdir -p /home/agalan/tmp
 
 # Copy post install
 curl https://raw.githubusercontent.com/albertogalan/sh/develop/sh/scripts/postinstall.sh -o /tmp/postinstall.sh
-
 sudo cp /tmp/postinstall.sh /home/agalan/postinstall.sh
-
 sudo chmod 755 /home/agalan/postinstall.sh
-sudo chown agalan:agalan /home/agalan/postinstall.sh
  
 sudo chown -R agalan:agalan /home/agalan
 
@@ -80,3 +77,5 @@ sudo reboot
 
 adding_user
 adding_basic_dotfiles
+installation_packages
+
