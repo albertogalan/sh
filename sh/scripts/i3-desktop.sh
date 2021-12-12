@@ -1,5 +1,36 @@
 #!/bin/bash
 
+
+adding_user() {
+
+## add agalan
+sudo useradd -m -s /bin/bash -U agalan -u 666 
+cp -pr /home/vagrant/.ssh /home/agalan/
+sudo chown -R agalan:agalan /home/agalan
+echo "%agalan ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/agalan
+
+sudo su -c "`ssh-agent -s`" - agalan
+sudo su -c "ssh-add /home/agalan/.ssh/agalan-github-key" - agalan
+
+## install dot files
+mkdir -p  /home/agalan/.config
+git clone https://github.com/albertogalan/sh.git /tmp/sh
+rsync -av /tmp/sh/dot/  /home/agalan/.config/
+rsync -av /tmp/sh/dot/  /home/vagrant/.config/
+sudo chown -R agalan:agalan  /home/agalan/.config
+sudo chown -R vagrant:vagrant  /home/vagrant/.config
+
+## Adding data folder 
+sudo mkdir -p /data/src
+sudo chown -R agalan:agalan /data
+# adding folder for swap files for vim
+mkdir -p /home/agalan/tmp
+
+}
+
+
+installation_packages() {
+
 sudo apt update
 sudo apt install -y net-tools 
 sudo apt install -y ranger i3 xrdp 
@@ -17,32 +48,6 @@ sudo apt install -y docker.io ansible
 sudo apt install curl wget fzf python3-minimal npm --no-install-recommends -y
 sudo apt install -y vim libgtk2.0-0 silversearcher-ag ripgrep nodejs ssh git
 
-## add agalan
-sudo useradd -m -s /bin/bash -U agalan -u 666 
-cp -pr /home/vagrant/.ssh /home/agalan/
-sudo chown -R agalan:agalan /home/agalan
-echo "%agalan ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/agalan
-
-## install dot files
-mkdir -p  /home/agalan/.config
-git clone https://github.com/albertogalan/sh.git /tmp/sh
-rsync -av /tmp/sh/dot/  /home/agalan/.config/
-rsync -av /tmp/sh/dot/  /home/vagrant/.config/
-sudo chown -R agalan:agalan  /home/agalan/.config
-sudo chown -R vagrant:vagrant  /home/vagrant/.config
-
-sudo cp -r /home/vagrant/.ssh /home/agalan/.ssh
-sudo chown -R agalan:agalan /home/agalan/.ssh
-
-sudo su -c "`ssh-agent -s`" - agalan
-sudo su -c "ssh-add /home/agalan/.ssh/agalan-github-key" - agalan
-
-## Adding data folder 
-sudo mkdir -p /data/src
-sudo chown -R agalan:agalan /data
-# adding folder for swap files for vim
-mkdir -p /home/agalan/tmp
-
 # Install home brew with no prompt
 yes '' | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'  >> /home/vagrant/.profile
@@ -58,4 +63,6 @@ sudo su -c "git clone --branch 0.25.0 --depth 1 https://github.com/junegunn/fzf.
 ifconfig | grep 192
 
 sudo reboot
+}
 
+adding_user

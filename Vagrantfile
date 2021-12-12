@@ -9,10 +9,10 @@ SCRIPT
 Vagrant.configure("2") do |config|
     config.ssh.insert_key = false
 
-    config.vm.provision "shell", inline: $script
     config.ssh.username = "vagrant"
     config.vm.provision "file", source: "~/.ssh/known_hosts", destination: ".ssh/known_hosts"
     config.vm.provision "file", source: "~/.ssh/id_rsa", destination: ".ssh/agalan-github-key"
+    config.vm.provision "shell", inline: $script
 
     config.vm.provider "virtualbox" do |v|
         v.memory = 4096
