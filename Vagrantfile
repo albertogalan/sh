@@ -11,12 +11,15 @@ Vagrant.configure("2") do |config|
 
     config.vm.provision "shell", inline: $script
     config.ssh.username = "vagrant"
+    config.vm.provision "file", source: "~/.ssh/known_hosts", destination: ".ssh/known_hosts"
+    config.vm.provision "file", source: "~/.ssh/id_rsa", destination: ".ssh/agalan-github-key"
 
     config.vm.provider "virtualbox" do |v|
         v.memory = 4096
         v.cpus = 3
     end
-      
+
+     
     (1..N).each do |i|
         config.vm.define "node-#{i}" do |node|
             node.vm.box = IMAGE_NAME

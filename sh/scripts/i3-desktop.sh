@@ -31,8 +31,8 @@ rsync -av /tmp/sh/dot/  /home/vagrant/.config/
 sudo chown -R agalan:agalan  /home/agalan/.config
 sudo chown -R vagrant:vagrant  /home/vagrant/.config
 
-#sudo su -c "`ssh-agent -s`" - agalan
-#sudo su -c "ssh-add /home/agalan/.ssh/agalan-github-key" - agalan
+sudo su -c "`ssh-agent -s`" - agalan
+sudo su -c "ssh-add /home/agalan/.ssh/agalan-github-key" - agalan
 
 ## Adding data folder 
 sudo mkdir -p /data/src
