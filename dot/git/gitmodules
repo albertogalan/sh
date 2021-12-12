@@ -1,12 +1,6 @@
 [submodule ".vim/vim-snippets"]
 	path = .vim/vim-snippets
 	url = https://github.com/albertogalan/vim-snippets
-[submodule ".config/wechatircd"]
-	path = .config/wechatircd
-	url = https://github.com/MaskRay/wechatircd
-[submodule "liquidprompt"]
-	path = liquidprompt
-	url = https://github.com/nojhan/liquidprompt.git
 [submodule "cheat"]
 	path = .config/cheat/cheatsheets/community
 	url = https://github.com/cheat/cheatsheets.git
