@@ -26,12 +26,15 @@ sync_dot(){
 
 # install vim flavour
 rm -rf /home/agalan/.vim
-git clone -b bix --single-branch git@github.com:albertogalan/$repo.git /home/agalan/.vim
+git clone -b bix --single-branch git@github.com:albertogalan/dotvim.git /home/agalan/.vim
 
 # install cheat
 go get -u github.com/cheat/cheat/cmd/cheat
 mkdir -p /home/agalan/.config/cheat
-rsync -a /data/src/cheatsheet/  /home/agalan/.config/cheat/
+
+# adding config and helpers
+git clone git@github.com:albertogalan/cheat.git /home/agalan/.config/cheat/
+
 echo 'export CHEAT_CONFIG_PATH="~/.cheat/conf.yml"' >> $HOME/.profile
 echo 'export CHEAT_CONFIG_PATH="~/.cheat/conf.yml"' >> $HOME/.bashrc
 echo 'export CHEAT_USE_FZF=true' >> $HOME/.profile
