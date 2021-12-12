@@ -25,6 +25,19 @@ sudo chown -R agalan:agalan /home/agalan
 
 }
 
+adding_basic_dotfiles(){
+
+## install dot files
+mkdir -p  /home/agalan/.config
+git clone https://github.com/albertogalan/sh.git /tmp/sh
+rsync -a /tmp/sh/dot/  /home/agalan/.config/
+rsync -a /tmp/sh/dot/  /home/vagrant/.config/
+sudo chown -R agalan:agalan  /home/agalan/.config
+sudo chown -R vagrant:vagrant  /home/vagrant/.config
+
+}
+
+
 installation_packages() {
 
 sudo apt update
@@ -62,3 +75,4 @@ sudo reboot
 }
 
 adding_user
+adding_basic_dotfiles
