@@ -16,7 +16,7 @@ sudo chown -R agalan:agalan /data
 mkdir -p /home/agalan/tmp
 
 # Copy post install
-curl https://raw.githubusercontent.com/albertogalan/sh/develop/sh/scripts/i3-desktop-postinstall.sh -o /tmp/postinstall.sh
+curl https://raw.githubusercontent.com/albertogalan/sh/develop/sh/scripts/postinstall.sh -o /tmp/postinstall.sh
 
 sudo cp /tmp/postinstall.sh /home/agalan/postinstall.sh
 
