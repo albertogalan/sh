@@ -27,5 +27,5 @@ rsync -a /data/src/dotvim/  /home/agalan/.vim/
 }
 
 
-clonning_repos
+cloning_repos
 sync_dot
