@@ -6,28 +6,24 @@ adding_user() {
 ## add agalan
 sudo useradd -m -s /bin/bash -U agalan -u 666 
 cp -pr /home/vagrant/.ssh /home/agalan/
-sudo chown -R agalan:agalan /home/agalan
 echo "%agalan ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/agalan
-
-sudo su -c "`ssh-agent -s`" - agalan
-sudo su -c "ssh-add /home/agalan/.ssh/agalan-github-key" - agalan
-
-## install dot files
-mkdir -p  /home/agalan/.config
-git clone https://github.com/albertogalan/sh.git /tmp/sh
-rsync -a /tmp/sh/dot/  /home/agalan/.config/
-rsync -a /tmp/sh/dot/  /home/vagrant/.config/
-sudo chown -R agalan:agalan  /home/agalan/.config
-sudo chown -R vagrant:vagrant  /home/vagrant/.config
 
 ## Adding data folder 
 sudo mkdir -p /data/src
 sudo chown -R agalan:agalan /data
+
 # adding folder for swap files for vim
 mkdir -p /home/agalan/tmp
 
-}
+# Copy post install
+curl https://raw.githubusercontent.com/albertogalan/sh/develop/sh/scripts/i3-desktop.sh -o /home/agalan/postinstall.sh
 
+sudo chmod 755 /home/agalan/postintall.sh
+sudo chown agalan:agalan /home/agalan/postintall.sh
+ 
+sudo chown -R agalan:agalan /home/agalan
+
+}
 
 installation_packages() {
 
