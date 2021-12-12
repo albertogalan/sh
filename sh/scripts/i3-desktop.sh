@@ -40,13 +40,8 @@ sudo chown -R agalan:agalan /data
 # adding folder for swap files for vim
 mkdir -p /home/agalan/tmp
 
-
-sudo apt install -y ruby
 # Install home brew with no prompt
-URL_BREW='https://raw.githubusercontent.com/Homebrew/install/master/install'
-echo -n '- Installing brew ... '
-echo | /usr/bin/ruby -e "$(curl -fsSL $URL_BREW)" > /dev/null
-if [ $? -eq 0 ]; then echo 'OK'; else echo 'NG'; fi
+yes '' | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'  >> /home/vagrant/.profile
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'  >> /home/agalan/.profile
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
