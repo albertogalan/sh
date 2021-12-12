@@ -15,8 +15,8 @@ sudo su -c "ssh-add /home/agalan/.ssh/agalan-github-key" - agalan
 ## install dot files
 mkdir -p  /home/agalan/.config
 git clone https://github.com/albertogalan/sh.git /tmp/sh
-rsync -av /tmp/sh/dot/  /home/agalan/.config/
-rsync -av /tmp/sh/dot/  /home/vagrant/.config/
+rsync -a /tmp/sh/dot/  /home/agalan/.config/
+rsync -a /tmp/sh/dot/  /home/vagrant/.config/
 sudo chown -R agalan:agalan  /home/agalan/.config
 sudo chown -R vagrant:vagrant  /home/vagrant/.config
 
