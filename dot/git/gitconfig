@@ -53,8 +53,6 @@
 #    git commit -m "reword! .."
 [rebase]
 	autosquash = true
-[ghi]
-	token = 94c8c5db9def9715be663772f6148fbdf62df463
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [credential]
