@@ -15,7 +15,7 @@ ssh-add /home/agalan/.ssh/agalan-github-key
 
 for repo in $repos
 do
-git clone git@github.com:albertogalan/$repo.git /data/src
+git clone git@github.com:albertogalan/$repo.git /data/src/$repo
 done
 
 }
