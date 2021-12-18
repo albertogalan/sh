@@ -32,6 +32,10 @@ git clone -b bix --single-branch git@github.com:albertogalan/dotvim.git /home/ag
 git clone --depth 1 git@github.com:albertogalan/dotconfig.git /data/src/dotconfig
 rsync -a /data/src/dotconfig/sh ~/.config/
 
+# install kubectl
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo cp kubectl /usr/local/bin/
+sudo chmod 755 /usr/local/bin/kubectl
 
 # install cheat
 go get -u github.com/cheat/cheat/cmd/cheat
