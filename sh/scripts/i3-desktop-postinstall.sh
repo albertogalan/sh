@@ -34,12 +34,15 @@ rsync -a /data/src/dotconfig/sh ~/.config/
 rsync -a /data/src/dotconfig/apps ~/.config/
 cp ~/.config/sh/.bashrc ~/.bashrc
 cp ~/.config/sh/.bash_profile ~/.bashrc_profile
-
+rsync -a /data/src/dotconfig/ssh/config  ~/.config/.ssh/config
 
 # install kubectl
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 sudo cp kubectl /usr/local/bin/
 sudo chmod 755 /usr/local/bin/kubectl
+mkdir ~/.kube
+
+
 
 # install cheat
 go get -u github.com/cheat/cheat/cmd/cheat
