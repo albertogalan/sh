@@ -28,6 +28,11 @@ sync_dot(){
 rm -rf /home/agalan/.vim
 git clone -b bix --single-branch git@github.com:albertogalan/dotvim.git /home/agalan/.vim
 
+# install initial scripts
+git clone --depth 1 git@github.com:albertogalan/dotconfig.git /data/src/dotconfig
+rsync -a /data/src/dotconfig/sh ~/.config/
+
+
 # install cheat
 go get -u github.com/cheat/cheat/cmd/cheat
 mkdir -p /home/agalan/.config/cheat
