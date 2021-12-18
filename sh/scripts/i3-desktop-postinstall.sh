@@ -31,6 +31,10 @@ git clone -b bix --single-branch git@github.com:albertogalan/dotvim.git /home/ag
 # install initial scripts
 git clone --depth 1 git@github.com:albertogalan/dotconfig.git /data/src/dotconfig
 rsync -a /data/src/dotconfig/sh ~/.config/
+rsync -a /data/src/dotconfig/apps ~/.config/
+cp ~/.config/sh/.bashrc ~/.bashrc
+cp ~/.config/sh/.bash_profile ~/.bashrc_profile
+
 
 # install kubectl
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
