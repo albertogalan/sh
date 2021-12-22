@@ -42,6 +42,15 @@ sudo cp kubectl /usr/local/bin/
 sudo chmod 755 /usr/local/bin/kubectl
 mkdir ~/.kube
 
+# config git
+rsync -a /data/src/dotconfig/git  ~/.config/
+ln -s ~/.config/git/gitconfig ~/.gitconfig
+ln -s ~/.config/git/gitignore_global ~//.gitignore_global
+ln -s ~/.config/git/git-commit-template ~/.git-commit-template
+
+
+# config bithucket cli
+sudo gem install atlassian-stash
 
 
 # install cheat
