@@ -44,6 +44,7 @@ sudo apt install -y python3-pip
 sudo apt install -y net-tools 
 sudo apt install -y golang-go
 sudo apt install -y ranger i3 xrdp 
+sudo apt install -y ack 
 sudo systemctl restart xrdp.service
 #sudo apt install tightvncserver
 sudo apt install -y firefox ranger kitty
