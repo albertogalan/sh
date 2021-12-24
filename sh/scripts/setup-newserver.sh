@@ -38,7 +38,7 @@ HOMESSH=`ssh $USER@$HOST "echo ~"`
 if [ "$OPTION" == 'master' ]; then
 
 	ssh $USER@$HOST -t -A   "
-		DIRdot-git=$HOMESSH/.config/dot-git
+		dot-git=$HOMESSH/.config/dot-git
 		mkdir -p $HOMESSH/.config
 		mkdir -p $HOMESSH/.ssh
 		touch $HOMESSH/.ssh/known_hosts
