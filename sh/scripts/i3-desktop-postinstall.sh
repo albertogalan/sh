@@ -40,7 +40,17 @@ rsync -a /data/src/dotconfig/ssh/config  ~/.config/.ssh/config
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 sudo cp kubectl /usr/local/bin/
 sudo chmod 755 /usr/local/bin/kubectl
-mkdir ~/.kube
+mkdir -p ~/.kube
+
+# config kitty
+
+
+# docker
+sudo usermod -aG docker ${USER}
+
+# k9s
+
+
 
 # config git
 rsync -a /data/src/dotconfig/git  ~/.config/
@@ -49,9 +59,15 @@ ln -s ~/.config/git/gitignore_global ~//.gitignore_global
 ln -s ~/.config/git/git-commit-template ~/.git-commit-template
 
 
+# config jira
+pip3 install jira
+
+# config gh
+sudo apt install gitsome -y
+
 # config bithucket cli
 sudo gem install atlassian-stash
-
+stash config 
 
 # install cheat
 go get -u github.com/cheat/cheat/cmd/cheat
