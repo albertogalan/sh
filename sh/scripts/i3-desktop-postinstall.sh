@@ -3,7 +3,7 @@
 
 repos="
 docs
-cheatsheet
+cheat
 dot-tldr
 "
 
@@ -21,25 +21,47 @@ done
 
 }
 
-sync_dot(){
+set_file (){
+rm ~/$1
+ln -s ~/.config/$1 ~/$1
+}
 
+
+install_dot(){
+BRANCH=$1
+mkdir -p $HOME/.config
+mkdir -p $HOME/.ssh
+
+# install .config dot
+rm -rf $HOME/.config/
+git clone --recurse-submodules --single-branch --depth 1 -b $BRANCH git@github.com:albertogalan/dotconfig.git $HOME/.config
+#cd $HOME/.config/dotconfig ; git  --work-tree=$HOME/.config  checkout -f --
+
+#prompt
+git clone https://github.com/nojhan/liquidprompt.git $HOME/liquidprompt
 
 # install vim flavour
-rm -rf /home/agalan/.vim
+#rm -rf /home/agalan/.vim
 git clone -b bix --single-branch git@github.com:albertogalan/dotvim.git /home/agalan/.vim
 
-# install initial scripts
-git clone --depth 1 git@github.com:albertogalan/dotconfig.git /data/src/dotconfig
-rsync -a /data/src/dotconfig/sh ~/.config/
-rsync -a /data/src/dotconfig/apps ~/.config/
-cp ~/.config/sh/.bashrc ~/.bashrc
-cp ~/.config/sh/.bash_profile ~/.bashrc_profile
-rsync -a /data/src/dotconfig/ssh/config  ~/.config/.ssh/config
+# config git
+set_file .gitconfig
+set_file .gitignore_global
+set_file .git-commit-template
+set_file .bashrc
+set_file .bash_profile
+set_file .ssh/config
+set_file .cheat/conf.yml
+set_file postinstall.sh
+
+
+
+}
+
+
+install_developer_packages(){
 
 # install kubectl
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-sudo cp kubectl /usr/local/bin/
-sudo chmod 755 /usr/local/bin/kubectl
 mkdir -p ~/.kube
 
 # config kitty
@@ -49,15 +71,6 @@ mkdir -p ~/.kube
 sudo usermod -aG docker ${USER}
 
 # k9s
-
-
-
-# config git
-rsync -a /data/src/dotconfig/git  ~/.config/
-ln -s ~/.config/git/gitconfig ~/.gitconfig
-ln -s ~/.config/git/gitignore_global ~//.gitignore_global
-ln -s ~/.config/git/git-commit-template ~/.git-commit-template
-
 
 # config jira
 pip3 install jira
@@ -69,17 +82,6 @@ sudo apt install gitsome -y
 sudo gem install atlassian-stash
 stash config 
 
-# install cheat
-go get -u github.com/cheat/cheat/cmd/cheat
-mkdir -p /home/agalan/.config/cheat
-
-# adding config and helpers
-git clone git@github.com:albertogalan/cheat.git /home/agalan/.config/cheat/
-
-echo 'export CHEAT_CONFIG_PATH="~/.cheat/conf.yml"' >> $HOME/.profile
-echo 'export CHEAT_CONFIG_PATH="~/.cheat/conf.yml"' >> $HOME/.bashrc
-echo 'export CHEAT_USE_FZF=true' >> $HOME/.profile
-echo 'export CHEAT_USE_FZF=true' >> $HOME/.bashrc
 }
 
 update_paths(){
@@ -91,5 +93,6 @@ source $HOME/.bashrc
 }
 
 cloning_repos
-sync_dot
-update_paths
+install_dot master
+install_developer_packages
+#update_paths
