@@ -77,7 +77,20 @@ ifconfig | grep 192
 sudo reboot
 }
 
+sound (){
+# 
+# reinstall kernel
+sudo install --reinstall linux-image-generic
+sudo apt install alsa-oss -y
+sudo xrdp-pulseaudio-installer -y
+sudo modprobe 
+aplay -l
+# add the corresponding module module
+sudo modprobe snd-hda-intel
+
+}
+
 adding_user
 adding_basic_dotfiles
 installation_packages
-
+sound

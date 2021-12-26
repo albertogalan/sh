@@ -17,8 +17,12 @@ Vagrant.configure("2") do |config|
     config.vm.provider "virtualbox" do |v|
         v.memory = 4096
         v.cpus = 3
+				if RUBY_PLATFORM =~ /darwin/
+      		vb.customize ["modifyvm", :id, '--audio', 'coreaudio', '--audiocontroller', 'hda'] # choices: hda sb16 ac97
+    		elsif RUBY_PLATFORM =~ /mingw|mswin|bccwin|cygwin|emx/
+      		vb.customize ["modifyvm", :id, '--audio', 'dsound', '--audiocontroller', 'ac97']
+    		end
     end
-
      
     (1..N).each do |i|
         config.vm.define "node-#{i}" do |node|
