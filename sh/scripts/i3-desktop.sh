@@ -83,14 +83,13 @@ sudo reboot
 sound (){
 # 
 # reinstall kernel
-sudo install --reinstall linux-image-generic
+sudo apt install -y --reinstall linux-image-generic
 sudo apt install alsa-oss -y
 sudo xrdp-pulseaudio-installer -y
-sudo modprobe 
 aplay -l
 # add the corresponding module module
 sudo modprobe snd-hda-intel
-
+sudo reboot
 }
 
 adding_user
