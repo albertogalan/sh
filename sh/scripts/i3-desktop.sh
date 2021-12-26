@@ -50,6 +50,9 @@ sudo systemctl restart xrdp.service
 #sudo apt install tightvncserver
 sudo apt install -y firefox ranger kitty
 
+# codecs to play primevideo 
+sudo apt install -y vlc
+
 # Sound
 # https://itsfoss.com/fix-sound-ubuntu-1304-quick-tip/
 sudo apt install alsa-base pulseaudio -y
