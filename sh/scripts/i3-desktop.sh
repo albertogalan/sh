@@ -86,7 +86,7 @@ sudo xrdp-pulseaudio-installer -y
 aplay -l
 # add the corresponding module module
 sudo modprobe snd-hda-intel
-
+sudo reboot
 }
 
 adding_user
