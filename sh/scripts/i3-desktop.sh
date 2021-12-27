@@ -89,6 +89,9 @@ sudo xrdp-pulseaudio-installer -y
 aplay -l
 # add the corresponding module module
 sudo modprobe snd-hda-intel
+sudo usermod -a -G audio agalan
+sudo usermod -a -G video agalan
+
 sudo reboot
 }
 
