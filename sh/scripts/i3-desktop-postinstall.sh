@@ -46,7 +46,7 @@ git clone -b bix --single-branch git@github.com:albertogalan/dotvim.git /home/ag
 
 
 # install tmux flavour
-git clone -b bix --single-branch git@github.com:albertogalan/dottmux.git /home/agalan/.tmux
+git clone  git@github.com:albertogalan/dottmux.git /home/agalan/.tmux
 
 # config git
 set_file .gitconfig
