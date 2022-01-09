@@ -44,6 +44,10 @@ git clone https://github.com/nojhan/liquidprompt.git $HOME/liquidprompt
 #rm -rf /home/agalan/.vim
 git clone -b bix --single-branch git@github.com:albertogalan/dotvim.git /home/agalan/.vim
 
+
+# install tmux flavour
+git clone -b bix --single-branch git@github.com:albertogalan/dottmux.git /home/agalan/.tmux
+
 # config git
 set_file .gitconfig
 set_file .gitignore_global
