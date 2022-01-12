@@ -30,7 +30,10 @@ ln -s ~/.config/$1 ~/$1
 install_dot(){
 BRANCH=$1
 mkdir -p $HOME/.config
+
 mkdir -p $HOME/.ssh
+# TODO copy .ssh/config
+
 
 # install .config dot
 rm -rf $HOME/.config/
@@ -88,6 +91,8 @@ stash config
 
 # aws and jq
 sudo apt install -y awscli jq
+mkdir -p $HOME/.aws
+# TODO copy $HOME/.aws/config
 
 }
 
