@@ -86,6 +86,9 @@ sudo apt install gitsome -y
 sudo gem install atlassian-stash
 stash config 
 
+# aws and jq
+sudo apt install -y awscli jq
+
 }
 
 update_paths(){
