@@ -68,6 +68,9 @@ set_file postinstall.sh
 
 install_developer_packages(){
 
+# for ranger pdf visualization
+sudo apt install -y poppler-utils imagemagick
+
 # install kubectl
 mkdir -p ~/.kube
 
