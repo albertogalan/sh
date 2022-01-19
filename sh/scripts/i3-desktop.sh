@@ -9,7 +9,7 @@ cp -pr /home/vagrant/.ssh /home/agalan/
 echo "%agalan ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/agalan
 
 ## Adding data folder 
-sudo mkdir -p /data/src
+sudo mkdir -p /data/{src,shared}
 sudo chown -R agalan:agalan /data
 
 # adding folder for swap files for vim
