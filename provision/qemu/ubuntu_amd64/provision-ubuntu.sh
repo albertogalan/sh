@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+PORTTOCONNECT=2224
 #Install brew and qemu + cloud init metadata dependencies
 #/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" 
 #brew install qemu
@@ -60,4 +61,4 @@ EOF
 mkisofs -output cidata.iso -volid cidata -joliet -rock user-data meta-data
 
 #boot the machine up
-qemu-system-x86_64 -m 2048 -smp 4 -hda $mainPath/images/focal-server-cloudimg-amd64.img -cdrom $mainPath/cloudinitmetadata/cidata.iso -device e1000,netdev=net0 -netdev user,id=net0,hostfwd=tcp::2224-:22 -nographic
+qemu-system-x86_64 -m 2048 -smp 4 -hda $mainPath/images/focal-server-cloudimg-amd64.img -cdrom $mainPath/cloudinitmetadata/cidata.iso -device e1000,netdev=net0 -netdev user,id=net0,hostfwd=tcp::$PORTTOCONNECT-:22 -nographic
