@@ -100,10 +100,27 @@ curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64
 sudo dpkg -i session-manager-plugin.deb
 
 
+
+
 mkdir -p $HOME/.aws
 # TODO copy $HOME/.aws/config
 
 }
+
+brew_packages (){
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/agalan/.bash_profile
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+brew install tfenv
+brew install tgenv
+tfenv install v1.0.11
+tfenv install 1.0.11
+tfenv use 1.0.11
+tgenv use 0.35.12
+tgenv install 0.35.12
+tgenv use  0.35.12
+}
+
 
 update_paths(){
 
@@ -116,4 +133,5 @@ source $HOME/.bashrc
 cloning_repos
 install_dot master
 install_developer_packages
+brew_packages
 #update_paths
