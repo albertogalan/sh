@@ -16,6 +16,14 @@ brew install --cask microsoft-teams
 # install terminal
 brew install kitty
 
+
+# install sshfs
+#    Remove old sshfs, macfuse, osxfuse using brew uninstall
+brew install --cask macfuse
+brew install gromgit/fuse/sshfs-mac
+brew link --overwrite sshfs-mac
+
+
 mkdir ~/qemu
 
 }
