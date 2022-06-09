@@ -50,6 +50,8 @@ sudo systemctl restart xrdp.service
 #sudo apt install tightvncserver
 sudo apt install -y firefox ranger kitty
 
+sudo apt install pandoc texlive-latex-base texlive-fonts-recommended texlive-extra-utils texlive-latex-extra
+
 # codecs to play primevideo 
 sudo apt install -y vlc
 
