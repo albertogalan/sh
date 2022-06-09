@@ -63,6 +63,8 @@ set_file postinstall.sh
 
 
 
+
+
 }
 
 
@@ -99,7 +101,8 @@ sudo apt install -y awscli jq
 curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
 sudo dpkg -i session-manager-plugin.deb
 
-
+# install virtualbox and vagrant 
+sudo apt install qemu qemu-kvm libvirt-clients libvirt-daemon-system virtinst bridge-utils virtualbox vagrant
 
 
 mkdir -p $HOME/.aws
