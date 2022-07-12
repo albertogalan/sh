@@ -116,6 +116,7 @@ echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/agalan/.b
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 brew install tfenv
 brew install tgenv
+brew install aws-iam-authenticator
 tfenv install v1.0.11
 tfenv install 1.0.11
 tfenv use 1.0.11
