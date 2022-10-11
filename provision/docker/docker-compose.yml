@@ -1,0 +1,20 @@
+services:
+  alpine:
+    image: docker.io/alpine:3.16.1
+    command: /bin/sh  -c "sleep infinite"
+    container_name: alpine
+  localstack:
+    image: docker.io/localstack/localstack:latest
+    container_name: localstack
+    environment:
+      - DEBUG=1
+      - DATA_DIR=/tmp/localstack/data
+      - EDGE_PORT=4566  
+      - SERVICES=s3,ec2,lambda,sts,iam,apigateway,cloudwatch,sqs,kms  
+    ports:
+      - '4500-4600:4500-4600'
+      - '8080:8080'
+    volumes:
+      - './.localstack:/tmp/localstack'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+   
