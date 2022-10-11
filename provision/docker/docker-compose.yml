@@ -17,4 +17,42 @@ services:
     volumes:
       - './.localstack:/tmp/localstack'
       - '/var/run/docker.sock:/var/run/docker.sock'
-   
+  nvim:
+    image: agalan75/im-desk-aws:1.3.2
+    container_name: im-desk-aws
+    environment:
+      - HOMEDESK=/home/agalan
+      - SERVICES=s3
+      - DEBUG=1
+      - DATA_DIR=/tmp/localstack/data
+      - AWS_REGION=eu-west-1
+      - AWS_PROFILE=dev
+      - no_proxy=$no_proxy,localstack:4596,localstack
+      - NO_PROXY=$NO_PROXY,localstack:4596,localstack
+      - https_proxy=$https_proxy
+      - HTTPS_PROXY=$HTTPS_PROXY
+      - HTTP_PROXY=$HTTP_PROXY
+      - http_proxy=$http_proxy
+    command: tail -f /${HOMEDESK}/requirements.txt
+    volumes:
+      - ${HOME}/.ssh:/${HOMEDESK}/.ssh 
+      - ${HOME}/.aws/:/${HOMEDESK}/.aws
+      - ${HOME}/.kube:/${HOMEDESK}/.kube
+      - ${HOME}/.bash_history:/${HOMEDESK}/.bash_history
+      - ${HOME}/data/src/dotconfig:/${HOMEDESK}/.config
+      - ${HOME}/data:/data
+      - ${HOME}/data/src/dotconfig/tmux:/${HOMEDESK}/.tmux
+      - ${HOME}/data/src/dotconfig/k9s:/${HOMEDESK}/.k9s
+      - ${HOME}/data/src/dotconfig/vim:/${HOMEDESK}/.vim
+      - /usr/bin/:/${HOMEDESK}/mybin
+      - /etc/pki/ca-trust:/etc/pki/ca-trust  
+      - /etc/ssl:/etc/ssl
+    links:
+      - "localstack:s3.localhost.localstack.cloud"
+      - "localstack:s3.localstack.localstack.cloud"
+      - "localstack:ec2.eu-west-1.localstack"
+      - "localstack:apigateway.eu-west-1.localstack"
+      - "localstack:docker0"
+      - "localstack:logs.eu-west-1.amazonaws.com"  
+      - "localstack:logs.eu-west-1.aws.amazon.com"  
+
