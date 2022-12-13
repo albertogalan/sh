@@ -1,5 +1,0 @@
-python.enableSourceMapSupport
-workspace.showOutput
-document.renameCurrentWord
-prettier.formatFile
-document.jumpToNextSymbol
