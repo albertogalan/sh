@@ -25,7 +25,7 @@ fi
 
 
 #sudo $package_manager update
-sudo $package_manager -y install python-simplejson
+#sudo $package_manager -y install python-simplejson
 sudo $package_manager install -y openssh-server
 
 # Network tools
@@ -37,21 +37,21 @@ sudo $package_manager install net-tools -y
 #pulseaudio --start
 
 # Graphical environment
-sudo $package_manager install -y i3 xinit xrdp ranger autojump
+sudo $package_manager install -y ranger autojump
+#sudo $package install -y i3 xinit xrdp 
 
 # Browser
-sudo $package_manager install -y firefox
+## sudo $package_manager install -y firefox
 
 # kitty Terminal 
 #curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 sudo $package_manager install -y kitty
 
 # Tools
-sudo $package_manager install -y docker.io ansible
+sudo $package_manager install -y docker.io #ansible
 sudo $package_manager install curl wget fzf python3-minimal npm --no-install-recommends -y
 git clone --branch 0.25.0 --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && echo yes | ~/.fzf/install
 sudo $package_manager install -y vim libgtk2.0-0 silversearcher-ag ripgrep nodejs ssh git
-
 
 # Add Home Brew
 #curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
