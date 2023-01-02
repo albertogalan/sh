@@ -18,11 +18,10 @@ services:
       - './.localstack:/tmp/localstack'
       - '/var/run/docker.sock:/var/run/docker.sock'
   nvim:
-    image: agalan75/im-desk-aws:1.3.2
-    container_name: im-desk-aws
+    image: agalan75/im-desk-aws:1.3.6
+    container_name: nvim
     environment:
       - HOMEDESK=/home/agalan
-      - SERVICES=s3
       - DEBUG=1
       - DATA_DIR=/tmp/localstack/data
       - AWS_REGION=eu-west-1
@@ -55,4 +54,9 @@ services:
       - "localstack:docker0"
       - "localstack:logs.eu-west-1.amazonaws.com"  
       - "localstack:logs.eu-west-1.aws.amazon.com"  
+      - "localstack:localhost.localstack.cloud"
+networks:
+  default:
+    external:
+      name: "localstack"
 
